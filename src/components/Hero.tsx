@@ -12,12 +12,7 @@ export default function Hero() {
   const ROLES =
     locale === "fa"
       ? ["توسعه‌دهنده فول‌استک", "مشارکت در اپن سورس", "حل مسئله"]
-      : [
-          "FULL STACK DEVELOPER",
-          "UI/UX ENTHUSIAST",
-          "OPEN SOURCE CONTRIBUTOR",
-          "PROBLEM SOLVER",
-        ];
+      : ["FULL STACK DEVELOPER", "OPEN SOURCE CONTRIBUTOR", "PROBLEM SOLVER"];
 
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayed, setDisplayed] = useState("");
@@ -108,21 +103,24 @@ export default function Hero() {
         }
         .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
         .btn-primary {
-          display: flex; align-items: center; gap: 8px;
+          display: inline-flex; align-items: center; gap: 8px;
           padding: 14px 28px; background: var(--accent);
           color: #fff; font-weight: 600; border-radius: 99px;
           border: none; cursor: pointer; font-size: 0.95rem;
           transition: all 0.3s; box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3);
+          text-decoration: none;
         }
         .btn-primary:hover {
           background: var(--accent-light); transform: scale(1.04);
           box-shadow: 0 0 35px rgba(var(--accent-rgb), 0.45);
+          color: #fff;
         }
         .btn-secondary {
-          display: flex; align-items: center; gap: 8px;
+          display: inline-flex; align-items: center; gap: 8px;
           padding: 14px 28px; border: 1px solid var(--border);
           color: var(--foreground); font-weight: 600; border-radius: 99px;
           background: none; cursor: pointer; font-size: 0.95rem; transition: all 0.3s;
+          text-decoration: none;
         }
         .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
         .hero-stats { display: flex; gap: 16px; }
@@ -167,12 +165,10 @@ export default function Hero() {
               <div className="hero-badge">
                 <div className="hero-badge-dot" />
                 <span className="hero-badge-text">
-                  {/* Key change here: passing the name as a variable to the translation string */}
                   {t("greeting", { name: t("name") })}
                 </span>
               </div>
 
-              {/* Big Heading stays as just the name */}
               <h1 className="hero-name">{t("name").toUpperCase()}</h1>
 
               <div className="hero-role">
@@ -185,18 +181,24 @@ export default function Hero() {
               </p>
 
               <div className="hero-ctas reveal reveal-delay-3">
-                <button
+                <a
+                  href="karlancer.com/profile/652773"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-primary"
-                  onClick={() => scrollTo("#contact")}
                 >
                   {t("hireMe")} <ArrowRight size={16} />
-                </button>
-                <button
+                </a>
+                <a
+                  href="#projects"
                   className="btn-secondary"
-                  onClick={() => scrollTo("#projects")}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo("#projects");
+                  }}
                 >
                   {t("viewWork")}
-                </button>
+                </a>
               </div>
             </div>
 
