@@ -82,10 +82,27 @@ export default function Projects() {
           text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s;
         }
         .proj-github:hover { color: var(--foreground); }
-        @media (max-width: 640px) {
-          .proj-item { grid-template-columns: 60px 1fr; }
-          .proj-buttons { display: none; }
+
+        /* MOBILE FIXES */
+        @media (max-width: 768px) {
+          .proj-item {
+            grid-template-columns: 48px 1fr; /* Switch to 2 columns */
+            gap: 16px;
+          }
+          .proj-buttons {
+            grid-column: 2; /* Move buttons under the text column */
+            margin-top: 16px;
+            flex-wrap: wrap;
+          }
           .proj-index { font-size: 2rem; }
+          .proj-desc { max-width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+          .proj-button {
+            padding: 6px 12px;
+            font-size: 0.75rem;
+          }
         }
       `}</style>
 
