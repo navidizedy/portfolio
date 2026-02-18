@@ -182,7 +182,7 @@ export default function Hero() {
 
               <div className="hero-ctas reveal reveal-delay-3">
                 <a
-                  href="karlancer.com/profile/652773"
+                  href="https://karlancer.com/profile/652773"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
