@@ -1,26 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&family=Vazirmatn:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
+/* ─── CSS Custom Properties ─────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f9f9f9;
+  --foreground: #0d0f14;
+  --muted: #ebebeb;
+  --muted-foreground: #6b7280;
+  --border: #e0e0e0;
+  --card: #ffffff;
+  --accent: #3b82f6;
+  --accent-light: #60a5fa;
+  --accent-rgb: 59, 130, 246;
+
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+  --font-bebas-neue: "Bebas Neue", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --background: #0d1117;
+  --foreground: #e8eaf0;
+  --muted: #1a1f2e;
+  --muted-foreground: #8b949e;
+  --border: #21262d;
+  --card: #161b22;
+  --accent: #60a5fa;
+  --accent-light: #93c5fd;
+  --accent-rgb: 96, 165, 250;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Base Reset ─────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-space-grotesk);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Persian RTL */
+[dir="rtl"] {
+  unicode-bidi: embed;
+}
+
+[dir="rtl"] body,
+[dir="rtl"] p,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] span:not(.logo-text),
+[dir="rtl"] li,
+[dir="rtl"] a:not(.logo-text),
+[dir="rtl"] button:not(.logo-btn) {
+  font-family: "Vazirmatn", "Tahoma", sans-serif;
+}
+
+/* Selection */
+::selection {
+  background: rgba(var(--accent-rgb), 0.25);
+  color: var(--foreground);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--accent-rgb), 0.4);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--accent-rgb), 0.7);
+}
+
+/* ─── Utility Classes ────────────────────────────────────── */
+
+/* Glow */
+.glow-blue {
+  box-shadow:
+    0 0 20px rgba(var(--accent-rgb), 0.35),
+    0 0 60px rgba(var(--accent-rgb), 0.1);
+}
+
+.glow-blue-text {
+  text-shadow: 0 0 30px rgba(var(--accent-rgb), 0.6);
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, var(--foreground) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Grid background */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(var(--accent-rgb), 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--accent-rgb), 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+.reveal-delay-5 {
+  transition-delay: 0.5s;
+}
+
+/* ─── Animations ─────────────────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.6);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease forwards;
+}
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ─── Component Helpers ──────────────────────────────────── */
+
+/* Section label */
+.section-label {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+/* Card base */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  transition:
+    border-color 0.3s,
+    background 0.3s;
+}
+
+.card:hover {
+  border-color: rgba(var(--accent-rgb), 0.4);
+}
+
+/* Display font helper */
+.font-display {
+  font-family: var(--font-bebas-neue);
+}
+
+/* Persian font */
+.font-persian {
+  font-family: "Vazirmatn", sans-serif;
+}
+.nav-logo,
+.footer-logo,
+.nav-logo *,
+.footer-logo * {
+  font-family: "Bebas Neue", sans-serif !important;
 }

@@ -1,0 +1,109 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Me",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "stack": "My Stack"
+  },
+  "hero": {
+    "greeting": "Hi, I'm {name}",
+    "name": "Navid Izedy",
+    "role": "FULL STACK DEVELOPER",
+    "tagline": "A passionate developer crafting high-performance, scalable, and beautiful web experiences.",
+    "hireMe": "Hire Me",
+    "viewWork": "View My Work",
+    "stats": {
+      "years": "3+",
+      "yearsLabel": "Years of Experience",
+      "projects": "7+",
+      "projectsLabel": "Completed Projects",
+      "hours": "5K+",
+      "hoursLabel": "Hours Worked"
+    }
+  },
+  "about": {
+    "sectionLabel": "About Me",
+    "statusLabel": "Status",
+    "statusValue": "Available for work",
+    "heading": "I turn ideas into digital experiences",
+    "highlights": {
+      "clean": "Clean Code",
+      "global": "Global Mindset",
+      "performance": "Performance First"
+    },
+    "p1": "Hi, I\u0027m a full-stack developer dedicated to turning ideas into creative solutions. I specialize in creating seamless and intuitive user experiences that are both functional and beautiful.",
+    "p2": "My approach focuses on scalable, high-performing solutions tailored to both user needs and business objectives. I prioritize performance, accessibility, and responsiveness in everything I build.",
+    "downloadCv": "Download CV"
+  },
+  "stack": {
+    "sectionLabel": "Tech Stack",
+    "heading": "Tools I Work With",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "tools": "Tools"
+    }
+  },
+  "experience": {
+    "sectionLabel": "Experience",
+    "heading": "My Journey",
+    "jobs": [
+      {
+        "company": "Freelancer",
+        "role": "Remote Job",
+        "period": "Apr 2025 - Present",
+        "description": "Working remote"
+      },
+      {
+        "company": "Learning",
+        "role": "Self Study",
+        "period": "Jan 2023 - Apr 2025",
+        "description": "Learn more skills and tools in website design and development"
+      },
+      {
+        "company": "Educational Certificate",
+        "role": "IHIM",
+        "period": "Jul 2022 - Jan 2023",
+        "description": "Web development educational certificate"
+      }
+    ]
+  },
+  "projects": {
+    "sectionLabel": "Projects",
+    "heading": "Featured Work",
+    "codeLabel": "Code",
+    "demoLabel": "Demo",
+    "githubLink": "View all projects on GitHub",
+    "items": [
+      {
+        "id": "01",
+        "title": "E-Commerce Platform",
+        "description": "A full-featured online store with cart, checkout, and admin dashboard.",
+        "tags": ["Next.js", "Tailwind CSS", "Stripe"],
+        "github": "https://github.com/navidizedy/corbincustome",
+        "demo": ""
+      }
+    ]
+  },
+  "contact": {
+    "sectionLabel": "Contact",
+    "heading": "Have a project in mind?",
+    "subheading": "Let\u0027s build something great together.",
+    "email": "thenowdy@email.com",
+    "sendEmail": "Send Email",
+    "copyEmail": "Copy Email",
+    "copied": "Copied!"
+  },
+
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode"
+  },
+  "lang": {
+    "en": "EN",
+    "fa": "ÙØ§"
+  }
+}
